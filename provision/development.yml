@@ -1,0 +1,14 @@
+- hosts: web
+  roles:
+    - base
+    - role: rvm_io.rvm1-ruby
+      sudo: True
+      rvm1_rvm_version: 'stable'
+      rvm1_user: vagrant
+      rvm1_install_path: '/home/{{ ansible_ssh_user }}/.rvm'
+      rvm1_rubies:
+        - 'ruby-2.2.0'
+
+- hosts: db
+  roles:
+    - base
